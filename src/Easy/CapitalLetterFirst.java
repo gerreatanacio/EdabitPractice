@@ -14,22 +14,16 @@ public class CapitalLetterFirst {
 	
 		public static String capToFront(String text) {
 			String AllCapsregex = "[A-Z]";
-			String LowerCapsregex = "[a-z]";
 			String firstPart ="";
-			String secondPart = "";
+			String secondPart = text.replaceAll("[A-Z]", "");
 		
 			Pattern pattern = Pattern.compile(AllCapsregex);
-			Pattern patternLower = Pattern.compile(LowerCapsregex);
 			Matcher matcher = pattern.matcher(text);
-			Matcher matcherX = patternLower.matcher(text);
 			
 			while(matcher.find()) {
 				firstPart += text.charAt(matcher.start());
 			}
 			
-			while(matcherX.find()) {
-				secondPart += text.charAt(matcherX.start());
-			}
 			
 			return (firstPart + secondPart);
 			
